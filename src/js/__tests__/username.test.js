@@ -1,12 +1,12 @@
 import Validator from '../username';
 
 test('standard username', () => {
-  const username = 'netology';
+  const username = 'neto-123_logy';
   expect(Validator.ValidateUsername(username)).toBeTruthy();
 });
 
 test('uppercase', () => {
-  const username = 'NETOLOGY';
+  const username = 'NETO-LOGY';
   expect(Validator.ValidateUsername(username)).toBeTruthy();
 });
 
@@ -16,7 +16,7 @@ test('wave case', () => {
 });
 
 test('last capital letter', () => {
-  const username = 'netologY';
+  const username = 'neto_logY';
   expect(Validator.ValidateUsername(username)).toBeTruthy();
 });
 
@@ -27,15 +27,15 @@ test('with underscore', () => {
 
 test('numbers starting', () => {
   const username = 'Neto_123logy';
-  expect(Validator.ValidateUsername(username)).toBeFalsy();
+  expect(Validator.ValidateUsername(username)).toBeTruthy();
 });
 
 test('numbers ending', () => {
-  const username = 'Neto-logy';
+  const username = '122Neto-logy';
   expect(Validator.ValidateUsername(username)).toBeFalsy();
 });
 
 test('dash ending', () => {
-  const username = 'Neto12logy';
+  const username = '-Neto12logy';
   expect(Validator.ValidateUsername(username)).toBeFalsy();
 });

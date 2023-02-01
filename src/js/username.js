@@ -1,5 +1,9 @@
 export default class Validator {
   static ValidateUsername(username) {
-    return !/[^\w-]/.test(username) && !/^[\d-_]|[\d-_]$/.test(username) && !/\d{4}/.test(username);
+    const dashAccept = /[\w-]/.test(username);
+    const startEndOfLine = !/^[\d-_]|[\d-_]$/.test(username);
+    const noMoreThanThreeDigits = !/\d{4}/.test(username);
+
+    return dashAccept && startEndOfLine && noMoreThanThreeDigits;
   }
 }
